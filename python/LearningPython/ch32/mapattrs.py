@@ -85,5 +85,3 @@ if __name__ == '__main__':
     trace(inheritance(I),           "INH\n")
     trace(mapattrs(I),          'ATTRS\n')
     trace(mapattrs(I,bysource = True), 'OBJS\n')
-
-   

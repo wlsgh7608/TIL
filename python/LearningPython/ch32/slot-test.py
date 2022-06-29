@@ -1,14 +1,24 @@
-from ListTree import ListTree
+import timeit
+base = """
+Is = []
+for i in range(1000):
+    X = C()
+    X.a = 1 ; X.b= 2; X.c = 3; X.d=4
+    t = X.a+X.b+X.c+X.d
+    Is.append(X)
+"""
+stmt = """
+class C(object):
+    __slots__ = ['a','b','c','d']
+""" + base
 
+print('Slots =>', end = ' ')
+print(min(timeit.repeat(stmt,number=1000,repeat = 3)))
 
-class C(ListTree):
+stmt = """
+class C(object):
     pass
+""" + base
 
-X = C()
-print(X)
-
-class C(ListTree):
-    __slots__ = ['a','b']
-X = C()
-X.c = 3
-print(X)
+print('Nonslots =>', end = ' ')
+print(min(timeit.repeat(stmt,number=1000,repeat=3)))

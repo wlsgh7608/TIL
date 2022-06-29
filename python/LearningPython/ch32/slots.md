@@ -213,3 +213,52 @@ D.__dict__.keys() # dict_keys(['__module__', '__slots__', 'b', '__doc__'])
 
 
 
+
+
+
+## 예제
+``` python
+class C(ListTree): pass
+
+X = C()
+print(X) # OK
+
+class C(ListTree): __slots__ = ['a','b'] # OK: 슈퍼클래스가 __dict__생성
+
+X = C()
+X.c = 3
+print(X) # X의 c와 C의 a,b 을 디스플레이
+
+```
+
+
+## 슬롯 속도 비교
+``` python
+import timeit
+base = """
+Is = []
+for i in range(1000):
+    X = C()
+    X.a = 1 ; X.b= 2; X.c = 3; X.d=4
+    t = X.a+X.b+X.c+X.d
+    Is.append(X)
+"""
+stmt = """
+class C(object):
+    __slots__ = ['a','b','c','d']
+""" + base
+
+print('Slots =>', end = ' ')
+print(min(timeit.repeat(stmt,number=1000,repeat = 3)))
+
+stmt = """
+class C(object):
+    pass
+""" + base
+
+print('Nonslots =>', end = ' ') # Slots => 1.0251611999999999
+print(min(timeit.repeat(stmt,number=1000,repeat=3))) # Nonslots => 1.0308925999999996
+```
+책에서는 20% 정도 빨라지는데  
+속도가 엄청 빨라지진 않았다....
+
