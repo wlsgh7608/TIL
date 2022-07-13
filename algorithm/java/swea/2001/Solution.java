@@ -40,8 +40,6 @@ class Solution
                 }
             }
             
-         
-            
             int max_sum = 0;
             
             for (int i = M; i< N+1;i ++){

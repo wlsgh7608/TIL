@@ -50,7 +50,6 @@ public class Main {
                 small = B_arr;
                 big = A_arr;
             }
-            // System.out.println("SMALL : "+small.length +" BIG : "+big.length+" diff :"+diff);
 
             int max_sum = 0 ;
             for (int k = 0; k<=diff;k++){

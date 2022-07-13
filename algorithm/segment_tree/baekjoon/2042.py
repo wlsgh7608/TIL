@@ -22,7 +22,6 @@ def update(idx,new_value,node,node_l,node_r): #(인덱스,update값,현재 노�
         return segments[node] # default 0
     if node_l == node_r:
         segments[node] = new_value
-        print("GATCHA",node)
         return segments[node]
     mid = (node_l+node_r)//2
     left = update(idx, new_value, 2*node, node_l, mid)
@@ -30,10 +29,10 @@ def update(idx,new_value,node,node_l,node_r): #(인덱스,update값,현재 노�
     segments[node] = calc(left, right)
     return segments[node]
 
-def query(start,end,node,node_l,node_r):
+def query(start,end,node,node_l,node_r): #(쿼리start,쿼리end,현재 노드,왼쪽노드,오른쪽 노드)
     if (end < node_l) or (start > node_r) :
         return 0 
-    if node_l<= node <= node_r:
+    if start <= node_l and node_r <= end:
         return segments[node]
 
     mid = (node_l+node_r)//2
@@ -48,16 +47,14 @@ arr = []
 for _ in range(n):
     arr.append(int(input()))
 init(1,0,n-1)
-print(segments)
 
 
 for _ in range(m+k):
     c , a, b = map(int,input().split())
     if c == 1:
         update(a, b, 1, 1, n)
-        print("UPDATE",segments)
     elif c == 2:
-        print(query(a, b, 1, 0, n-1))
+        print(query(a, b, 1, 1, n))
         
 
 
