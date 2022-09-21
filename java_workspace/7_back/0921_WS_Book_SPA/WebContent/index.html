@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f5fff5d4bf15dbaab0b1e555a16bd703"
+    ></script>
+    
+  </head>
+  <body>
+    <!-- header와 main 전체 div -->
+    <div class="container text-center">
+      <!-- navbar -->
+      <div class="navbar navbar-expand-lg shadow p-3 mb-5 bg-body rounded">
+        <div class="container-fluid">
+          <!-- title -->
+          <a class="navbar-brand" href="/">SSAFY Book Cafe</a>
+          <!-- nav list -->
+          <div class="nav justify-content-end">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">              
+              <li class="nav-item">
+                <span id="loginSpan">
+                	ID<input size="3" id="id">PW<input size="3" id="pw"><button class="btn btn-info" id="loginBtn">로그인</button>
+                </span>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">회원가입</a>
+              </li>              
+              <li class="nav-item">
+                <a class="nav-link" href="">마이페이지</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">공지사항</a>
+              </li>
+              <li class="nav-item">
+                <div class="dropdown">
+                  <a class="btn btn-outline-info dropdown-toggle" data-bs-toggle="dropdown">
+                    관리자
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="#"
+                        data-bs-toggle="modal"
+                        data-bs-target="#mapModal"
+                        >지도</a
+                      >
+                    </li>
+                    <li><a class="dropdown-item" href="#">Link 2</a></li>
+                    <li><a class="dropdown-item" href="#">Link 3</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--  sidebar main -->
+      <div class="row">
+        <div class="col-3">
+          <!-- sidebar -->
+          <img src="img/profile.png" alt="" />
+          <!-- 매장 펼치기  -->
+          <div>
+            <button
+              class="btn"
+              type="button"
+              data-bs-toggle="collapse"
+              href="#all"
+              role="button"
+              aria-expanded="false"
+              aria-controls="all"
+            >
+              전국 매장 펼치기
+            </button>
+            <div class="collapse multi-collapse" id="all">
+              <button
+                class="btn"
+                type="button"
+                data-bs-toggle="collapse"
+                href="#seoul"
+                role="button"
+                aria-expanded="false"
+                aria-controls="seoul"
+              >
+                서울
+              </button>
+              <div class="collapse multi-collapse" id="seoul">
+                <div>역삼점</div>
+              </div>
+              <div class="collapse multi-collapse" id="seoul">
+                <div>선릉점</div>
+              </div>
+            </div>
+            <div class="collapse multi-collapse" id="all">
+              <button
+                class="btn"
+                type="button"
+                data-bs-toggle="collapse"
+                href="#deajeon"
+                role="button"
+                aria-expanded="false"
+                aria-controls="deajeon"
+              >
+                대전
+              </button>
+              <div class="collapse multi-collapse" id="deajeon">
+                <div>역삼점</div>
+              </div>
+              <div class="collapse multi-collapse" id="deajeon">
+                <div>선릉점</div>
+              </div>
+            </div>
+            <div class="collapse multi-collapse" id="all">
+              <button
+                class="btn"
+                type="button"
+                data-bs-toggle="collapse"
+                href="#gumi"
+                role="button"
+                aria-expanded="false"
+                aria-controls="gumi"
+              >
+                구미
+              </button>
+              <div class="collapse multi-collapse" id="gumi">
+                <div>역삼점</div>
+              </div>
+              <div class="collapse multi-collapse" id="gumi">
+                <div>선릉점</div>
+              </div>
+            </div>
+            <div class="collapse multi-collapse" id="all">
+              <button
+                class="btn"
+                type="button"
+                data-bs-toggle="collapse"
+                href="#gwangju"
+                role="button"
+                aria-expanded="false"
+                aria-controls="gwangju"
+              >
+                광주
+              </button>
+              <div class="collapse multi-collapse" id="gwangju">
+                <div>역삼점</div>
+              </div>
+              <div class="collapse multi-collapse" id="gwangju">
+                <div>선릉점</div>
+              </div>
+            </div>
+          </div>
+          <!-- 언어 선택하기 -->
+          <div class="border border-dark">
+            <p>[ 당신의 선택 ]</p>
+            <p>공부하고 싶은 분야를 골라 주세요!!!</p>
+            <div>
+              <ul class="list-group text-start">
+                <li class="list-group-item">
+                  <input class="mx-4" type="radio" name="subject" value="python" /><img
+                    width="10%"
+                    src="./img/poll/python.png"
+                  />Python
+                </li>
+                <li class="list-group-item">
+                  <input class="mx-4" type="radio" name="subject" value="html5" /><img
+                    width="10%"
+                    src="./img/poll/html5.png"
+                  />HTML5
+                </li>
+                <li class="list-group-item">
+                  <input class="mx-4" type="radio" name="subject" value="vuejs" /><img
+                    width="10%"
+                    src="./img/poll/vuejs.png"
+                  />Vue.js
+                </li>
+                <li class="list-group-item">
+                  <input class="mx-4" type="radio" name="subject" value="java" /><img
+                    width="10%"
+                    src="./img/poll/java.png"
+                  />Java
+                </li>
+              </ul>
+            </div>
+            <div>
+              <input type="submit" value="투표하기" />
+              <input type="button" value="결과보기" />
+            </div>
+            <br />
+            <p>투표기간 : 21.03.01 ~ 21.03.31</p>
+          </div>
+        </div>
+        <div class="col-9 container">
+          <!-- main content -->
+          <div class="text-start my-3"><b> &nbsp;&nbsp; [프로그래밍 언어]</b></div>
+          <table>
+            <tr>
+              <td><img src="./img/book/p_book01.png" width="80%" /></td>
+              <td><img src="./img/book/p_book02.png" width="80%" /></td>
+              <td><img src="./img/book/p_book03.png" width="80%" /></td>
+              <td><img src="./img/book/p_book04.png" width="80%" /></td>
+            </tr>
+            <tr>
+              <td><small>점프 투 파이썬 </small></td>
+              <td><small>HTML5 API 프로그래밍 </small></td>
+              <td><small>Vue.js 입문 </small></td>
+              <td><small>Java 프로그래밍 </small></td>
+            </tr>
+            <tr>
+              <td>(18,900원)</td>
+              <td>(18,900원)</td>
+              <td>(18,900원)</td>
+              <td>(18,900원)</td>
+            </tr>
+          </table>
+
+          <div class="text-start my-3"><b> &nbsp;&nbsp; [에세이]</b></div>
+          <table class="text-center">
+            <tr>
+              <td><img src="./img/book/e_book01.png" width="80%" /></td>
+              <td><img src="./img/book/e_book02.png" width="80%" /></td>
+              <td><img src="./img/book/e_book03.png" width="80%" /></td>
+              <td><img src="./img/book/e_book04.png" width="80%" /></td>
+            </tr>
+            <tr>
+              <td><small>2인조 </small></td>
+              <td><small>안녕, 소중한 사람 </small></td>
+              <td><small>꽃을 보듯 너를 본다 </small></td>
+              <td><small>곰돌이 푸, 행복한 일은 매일 있어 </small></td>
+            </tr>
+            <tr>
+              <td>(18,900원)</td>
+              <td>(18,900원)</td>
+              <td>(18,900원)</td>
+              <td>(18,900원)</td>
+            </tr>
+          </table>
+
+          <!-- 인기글 최신글 -->
+          <div class="row">
+            <div class="col text-start">
+              <div class="my-3"><b> &nbsp;&nbsp; [인기글]</b></div>
+              <table class="table table-hover">
+                <tr>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>조회수</th>
+                </tr>
+                <tr>
+                  <td>자바공부 쉽게하는법!!</td>
+                  <td>이쎄림</td>
+                  <td>1756</td>
+                </tr>
+                <tr>
+                  <td>알고리즘은 자바? 파이썬?</td>
+                  <td>홍정밍</td>
+                  <td>998</td>
+                </tr>
+                <tr>
+                  <td>스프링 정복하기~</td>
+                  <td>김나켠</td>
+                  <td>856</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="col text-start">
+              <div class="my-3"><b> &nbsp;&nbsp; [최신글]</b></div>
+              <table class="table table-hover">
+                <tr>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>조회수</th>
+                </tr>
+                <tr>
+                  <td>web 관련 질문있어요</td>
+                  <td>이주녕</td>
+                  <td>12</td>
+                </tr>
+                <tr>
+                  <td>vuejs는 이렇게 공부해보세요</td>
+                  <td>조밍기</td>
+                  <td>998</td>
+                </tr>
+                <tr>
+                  <td>꽃길만 걸어요</td>
+                  <td>류해면</td>
+                  <td>856</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex flex-row my-5 justify-content-center">
+        <div class="p-2"><a class="text-decoration-none text-muted" href="">카페소개</a></div>
+        <div class="p-2">
+          <a class="text-decoration-none text-muted" href="">개인정보처리방침</a>
+        </div>
+        <div class="p-2"><a class="text-decoration-none text-muted" href="">이용약관</a></div>
+        <div class="p-2"><a class="text-decoration-none text-muted" href="">오시는길</a></div>
+        <div>@ SSAFY Corp.</div>
+      </div>
+    </div>
+
+    <!-- The Modal -->
+    <!-- 지도 Modal -->
+    <div class="modal" id="mapModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">지도</h4>
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div id="map" style="width: 400px; height: 400px"></div>
+            <script>
+              var container = document.getElementById("map");
+              var options = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667),
+                level: 3,
+              };
+
+              var map = new kakao.maps.Map(container, options);
+            </script>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" integrity="sha512-aUhL2xOCrpLEuGD5f6tgHbLYEXRpYZ8G5yD+WlFrXrPy2IrWBlu6bih5C9H6qGsgqnU6mgx6KtU8TreHpASprw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript" src="js/my.js"></script>
+</html>

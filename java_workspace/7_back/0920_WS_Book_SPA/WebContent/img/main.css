@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
+a{
+  text-decoration:none;
+  color: black;
+}
+
+
+a:hover{
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* 상단 Header */
+.header{
+  height:70px;
+  box-shadow: 0px 1px 10px rgba(100, 90, 50, 0.3);
+
+}
+
+.nav {
+  position: relative;
+  margin: auto;
+  max-width: 1200px;
+  width: calc(100%-120px);
+  height: 70px;
+}
+
+#logo{
+  font-size: 40px;
+  color:darkblue;
+  float:left;
+  margin-left: 20px;
+  line-height: 70px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.info{
+  position:relative;
+  line-height: 70px;
+  margin-left: 20px;
+  font-weight: 300;
+}
+
+.menu{
+  position: absolute;
+  bottom:0;
+  right:0;
+}
+
+.menu > li {
+  float:left;
+  margin-left:10px;
+  font-size:20px;
+  line-height: 70px;
+}
+
+.menu > li:last-child{
+  margin-right: 10px;
+}
+
+.menu-item{
+  color:darkcyan;
+}
+
+.menu-item:hover{
+  color:blueviolet;
+}
+
+body{
+  margin:0;
+  padding:0;
+}
+
+
+
+.content{
+  margin:10px;
+  max-width: 1300px;
+  min-height: 180vh;
+}
+
+
+/* 중앙 Left */
+
+
+.content-left{
+  width:25%;
+  float:left;
+  margin-left: 10%;
+  text-align: center;
+}
+
+.content-left-profile{
+  margin: 5px auto;
+  height: 360px;
+  text-align: center;
+}
+
+.content-left-profile > img{
+  margin-top: 5px;
+  height:170px;
+}
+
+.content-left-store{
+  margin:10px;
+}
+
+.content-left-open{
+  background-color: rgb(185, 185, 185);
+  padding: 15px;
+  font-size: large;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.store-item{
+  background-color: rgb(224, 224, 224);
+  margin-bottom: 5px;
+  padding:10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.store-inside > li{
+  margin-bottom:10px;
+  margin-top:10px;
+  font-weight: lighter;
+  margin-left: 30px;
+}
+
+
+
+
+
+.content-left-poll{
+  border: 3px solid slategrey;
+  border-radius: 20px;
+  
+  box-shadow: 3px 3px 3px rgba(100, 90, 50, 0.3);
+}
+
+.content-left-poll-btn{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.poll-title{
+  font-size:large;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.poll-answer{
+  border-radius: 10px;
+  margin: 10px;
+
+}
+
+.poll-answer > ul >li >img{
+  height:40px;
+  margin:2px;
+}
+
+.poll-btn{
+  margin-top: 15px;
+}
+.poll-date{
+  margin-top:20px;
+}
+
+
+
+
+/* 중앙 main */
+.content-main{
+  float:right;
+}
+
+.content-main-content{
+  min-height: 300px;
+  margin-bottom: 30px;
+}
+
+.content-main-content h2{
+  margin: 10px;
+}
+
+.book-list{
+  display:inline;
+  list-style: none;
+}
+
+.book-list > li{
+  float:left;
+  margin: 5px;
+  padding:5px;
+  max-width: min-content;
+  border:1px solid black;
+  min-height: 240px;
+}
+
+
+
+.book-list > li > img{
+  height:190px;
+}
+
+
+.content-main-left{
+  float:left;
+  max-width: 50%;
+}
+.content-main-right{
+  float:right;
+  max-width: 50%;
+}
+
+table{
+  height: 150px;
+  width:400px;
+}
+
+tbody > tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+/* 하단 footer */
+
+.footer{
+  position: relative;
+  bottom: 0;
+  margin-left: 10%;
+  background-color: ghostwhite;
+}
+
+.footer-menu > li{
+  float:left;
+  line-height: 100px;
+  font-weight: 100;
+  margin-right: 3%;
+} 
+
+
+.button{
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: whitesmoke;
+}
+
+.btn-primary{
+  background-color: blueviolet;
+  color:white;
+}
